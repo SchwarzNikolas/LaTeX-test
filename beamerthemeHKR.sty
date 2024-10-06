@@ -1,0 +1,96 @@
+\usepackage{tikz}
+\usepackage{ragged2e}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+
+\mode<presentation>
+
+% disable navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\font\subtitlefont=cmr12 at 20pt
+\font\titlefont=cmr12 at 40pt
+\setbeamerfont{frametitle}{size=\titlefont}
+
+% Redefine normalsize to 24pt
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize{24pt}{28pt}%
+}
+
+
+\definecolor{hkr_green}{HTML}{50aa00}
+\setbeamercolor{mycolor}{fg=white,bg=hkr_green}
+\setbeamercolor{frametitle}{fg=hkr_green}
+\geometry{paperwidth=10in,paperheight=5.63in}
+
+% Title page
+\setbeamercolor{title page}{fg=white}
+\setbeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=center] at (current page.center) {
+            \begin{tcolorbox}[
+                colframe=hkr_green,
+                colback=hkr_green,
+                boxrule=0.1mm,
+                arc=1.5mm,
+                width=24.4cm,
+                height=13.3cm
+            ]{}
+            \end{tcolorbox}
+        };
+    \end{tikzpicture}
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=north west] at ([yshift = -1.02cm, xshift = 1.1cm]current page.north west) {
+        \includegraphics[width=5.4cm]{hkr_logo.png}
+        };
+    \end{tikzpicture}
+    \centerline{
+        \begin{minipage}[c][0.75\paperheight][c]{0.9\paperwidth}
+            \centering
+            \vskip5cm
+            {\titlefont \inserttitle}
+            \vskip4cm
+            {\subtitlefont \insertauthor}
+        \end{minipage}
+    }
+}
+
+%Footline
+\setbeamertemplate{footline}{
+    \ifbeamer@plainframe
+      \else
+        \ifnum\c@framenumber=1
+        \else
+            \hspace{20.9cm}
+            \includegraphics[width=3.41cm]{hkr_logo_ft.png}
+            \vspace{1.06cm}
+        \fi
+    \fi
+} 
+
+%Item color
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{itemize item}{fg=black} 
+
+\setbeamertemplate{itemize subitem}{\color{black}$\textendash$}
+
+\setbeamercolor{enumerate item}{fg=black}
+
+% Frame background
+\setbeamertemplate{background}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=center] at (current page.center) {
+            \begin{tcolorbox}[
+                colframe=hkr_green,
+                colback=white,
+                boxrule=0.1mm,
+                arc=1.5mm,
+                width=24.4cm,
+                height=13.3cm
+            ]{}
+            \end{tcolorbox}
+        };
+    \end{tikzpicture}
+}
+
+\mode<all>
